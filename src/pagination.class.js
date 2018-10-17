@@ -98,6 +98,16 @@ var Pagination = Class.extend({
         var options = object.assign(the[_options], pager);
         options.total = Math.max(options.total, options.page);
         return the[_tpl].render(parsers[options.mode](options));
+    },
+
+    /**
+     * 销毁实例
+     */
+    destroy: function () {
+        var the = this;
+
+        the[_tpl].destroy();
+        Pagination.invoke(the, 'destroy');
     }
 });
 var sole = Template.sole;
