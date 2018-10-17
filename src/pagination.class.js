@@ -78,7 +78,7 @@ var Pagination = Class.extend({
         options = the[_options] = object.assign({}, defaults, options);
         the[_tpl] = new Template(Pagination.template(options.mode));
         the[_tpl].filter('page', function (page) {
-            if (page < 1 || page > options.total) {
+            if (!page || page < 1 || page > options.total) {
                 return 'javascript:;';
             }
 
