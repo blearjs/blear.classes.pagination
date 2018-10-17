@@ -4,7 +4,7 @@
         <li class="
             {{options.namespace}}-item
             {{options.namespace}}-item_prev
-            {{options.page == 1 ? options.namespace + 'item_disabled' : ''}}
+            {{options.page == 1 ? options.namespace + '-item_disabled' : ''}}
             ">
             <a aria-label="Previous" href="{{= options.page - 1 | page}}">{{options.prev}}</a>
         </li>
@@ -13,9 +13,9 @@
         {{#for item in list}}
         <li class="
             {{options.namespace}}-item
-            {{options.page == item.text ? options.namespace + 'item_active' : ''}}
-            {{item.type == 1 ? options.namespace + 'item_ellipsis' : ''}}
-            {{item.type == 2 ? options.namespace + 'item_number' : ''}}
+            {{options.page == item.text ? options.namespace + '-item_active' : ''}}
+            {{item.type == 1 ? options.namespace + '-item_ellipsis' : ''}}
+            {{item.type == 2 ? options.namespace + '-item_number' : ''}}
             "><a href="{{= item.page | page}}">{{item.text}}</a>
         </li>
         {{/for}}
@@ -24,7 +24,7 @@
         <li class="
             {{options.namespace}}-item
             {{options.namespace}}-item_next
-            {{options.page == options.total ? options.namespace + 'item_disabled' : ''}}
+            {{options.page == options.total ? options.namespace + '-item_disabled' : ''}}
             ">
             <a aria-label="Next" href="{{= options.page + 1 | page}}">{{options.next}}</a>
         </li>
