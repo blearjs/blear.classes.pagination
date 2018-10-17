@@ -1,7 +1,7 @@
 {
   "name": "blear.classes.pagination",
   "version": "1.0.0",
-  "description": "描述",
+  "description": "分页类（支持 simple、range 两种模式）",
   "scripts": {
     "live": "browser-sync start --config bs-config.js",
     "test": "./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha test/**/test.*.js",
