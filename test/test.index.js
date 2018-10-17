@@ -8,11 +8,34 @@
 'use strict';
 
 var expect = require('chai-jasmine').expect;
-var index = require('../src/index.js');
+var Pagination = require('../src/exports/node');
 
 describe('测试文件', function () {
-    it('base', function () {
-        expect(index).toEqual('index');
+
+    it('simple mode', function () {
+        var p = new Pagination({
+            mode: 'simple'
+        });
+
+        var html = p.render({
+            page: 3,
+            total: 3
+        });
+
+        console.log(html);
     });
+
+    it('range mode', function () {
+        var p = new Pagination({
+            mode: 'range'
+        });
+
+        var html = p.render({
+            page: 3
+        });
+
+        console.log(html);
+    });
+
 });
 

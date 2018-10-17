@@ -1,0 +1,25 @@
+<nav aria-label="Page navigation" class="{{options.namespace}} {{options.namespace}}_simple">
+    <ul class="{{options.namespace}}-list">
+        <li class="
+            {{options.namespace}}-item
+            {{options.namespace}}-item_prev
+            {{options.page == 1 ? options.namespace + '-item_disabled' : ''}}
+            ">
+            <a aria-label="Previous" href="{{= options.page - 1 | page}}">{{options.prev}}</a>
+        </li>
+
+        <li class="
+            {{options.namespace}}-item
+            {{options.namespace}}-item_label
+            "><a>{{options.page}}/{{options.total}}</a>
+        </li>
+
+        <li class="
+            {{options.namespace}}-item
+            {{options.namespace}}-item_next
+            {{options.page == options.total ? options.namespace + '-item_disabled' : ''}}
+            ">
+            <a aria-label="Next" href="{{= options.page + 1 | page}}">{{options.next}}</a>
+        </li>
+    </ul>
+</nav>
