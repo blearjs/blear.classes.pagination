@@ -14,7 +14,8 @@ describe('测试文件', function () {
 
     it('simple mode', function () {
         var p = new Pagination({
-            mode: 'simple'
+            mode: 'simple',
+            format: '/page/%#%'
         });
 
         var html = p.render({
@@ -27,8 +28,12 @@ describe('测试文件', function () {
 
     it('range mode', function () {
         var p = new Pagination({
-            mode: 'range'
+            mode: 'range',
+            format: function (page) {
+                return p._s + '/p/' + page;
+            }
         });
+        p._s = 'abc';
 
         var html1 = p.render({
             page: 3,

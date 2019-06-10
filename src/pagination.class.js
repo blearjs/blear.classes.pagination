@@ -10,6 +10,7 @@
 var Class = require('blear.classes.class');
 var Template = require('blear.classes.template');
 var object = require('blear.utils.object');
+var typeis = require('blear.utils.typeis');
 
 var defaults = {
     /**
@@ -62,7 +63,7 @@ var defaults = {
 
     /**
      * 分页 URL 格式，使用 `%#%` 来表示分页页码
-     * @type string
+     * @type string | function
      */
     format: '?page=%#%'
 };
@@ -76,13 +77,17 @@ var Pagination = Class.extend({
         var the = this;
 
         options = the[_options] = object.assign({}, defaults, options);
+        var format = options.format;
+        var formater = typeis.Function(format) ? format : function (page) {
+            return format.replace(/%#%/g, page);
+        };
         the[_tpl] = new Template(Pagination.template(options.mode));
         the[_tpl].filter('page', function (page) {
             if (!page || page < 1 || page > options.total) {
                 return 'javascript:;';
             }
 
-            return options.format.replace(/%#%/g, page);
+            return formater.call(the, page);
         });
     },
 
