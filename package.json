@@ -45,7 +45,7 @@
   "devDependencies": {
     "chai-jasmine": "1.0.7",
     "istanbul": "0.4.5",
-    "mocha": "4.0.1"
+    "mocha": "10.2.0"
   },
   "license": "MIT"
 }
